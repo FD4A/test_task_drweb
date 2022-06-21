@@ -4,8 +4,8 @@
 
 void test_simple()
 {
-	std::cout << "start " << __FUNCTION__ << '\n';
-	concrete_dictionary<std::string,std::string> D;
+    std::cout << "start " << __FUNCTION__ << '\n';
+    concrete_dictionary<std::string,std::string> D;
 
     std::string red("RED");
     std::string xred("#FF0000");
@@ -16,29 +16,29 @@ void test_simple()
     std::string white("WHITE");
 
     D.set(red, xred);
-	D.set(green, xgreen);
-	D.set(blue, xblue);
+    D.set(green, xgreen);
+    D.set(blue, xblue);
 
-	assert( true==D.is_set(red) );
-	assert( true==D.is_set(green) );
-	assert( true==D.is_set(blue) );
-	assert( false==D.is_set(white) );
+    assert( true==D.is_set(red) );
+    assert( true==D.is_set(green) );
+    assert( true==D.is_set(blue) );
+    assert( false==D.is_set(white) );
 
-	std::string colorR = D.get(red);
-	std::string colorG = D.get(green);
-	std::string colorB = D.get(blue);
+    std::string colorR = D.get(red);
+    std::string colorG = D.get(green);
+    std::string colorB = D.get(blue);
 
-	assert( xred==colorR );
-	assert( xgreen==colorG );
-	assert( xblue==colorB );
+    assert( xred==colorR );
+    assert( xgreen==colorG );
+    assert( xblue==colorB );
 
-	std::cout << "[OK] finish " << __FUNCTION__ << "()\n";
+    std::cout << "[OK] finish " << __FUNCTION__ << "()\n";
 }
 
 void test_exception()
 {
-	std::cout << "start " << __FUNCTION__ << '\n';
-	concrete_dictionary<std::string,std::string> D;
+    std::cout << "start " << __FUNCTION__ << '\n';
+    concrete_dictionary<std::string,std::string> D;
 
     std::string red("RED");
     std::string xred("#FF0000");
@@ -49,26 +49,26 @@ void test_exception()
     std::string white("WHITE");
 
     D.set(red, xred);
-	D.set(green, xgreen);
-	D.set(blue, xblue);
+    D.set(green, xgreen);
+    D.set(blue, xblue);
 
-	assert( true==D.is_set(red) );
-	assert( true==D.is_set(green) );
-	assert( true==D.is_set(blue) );
-	assert( false==D.is_set(white) );
+    assert( true==D.is_set(red) );
+    assert( true==D.is_set(green) );
+    assert( true==D.is_set(blue) );
+    assert( false==D.is_set(white) );
 
-	std::string colorR = D.get(red);
-	std::string colorG = D.get(green);
-	std::string colorB = D.get(blue);
+    std::string colorR = D.get(red);
+    std::string colorG = D.get(green);
+    std::string colorB = D.get(blue);
 
-	try
-	{
-		std::string colorW = D.get(white);
-	}
-	catch ( const not_found_exception_mydict<std::string>& msg )
-	{
-		std::cout << "[OK] finish " << __FUNCTION__ << "()\n";
-	}
+    try
+    {
+    	std::string colorW = D.get(white);
+    }
+    catch ( const not_found_exception_mydict<std::string>& msg )
+    {
+    	std::cout << "[OK] finish " << __FUNCTION__ << "()\n";
+    }
 }
 
 

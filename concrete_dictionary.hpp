@@ -9,15 +9,15 @@ template<class Key>
 class not_found_exception_mydict: public not_found_exception<Key>
 {
 private:
-	Key key_;
+    Key key_;
 public:
-	not_found_exception_mydict(Key key): key_{key}
-		{}
+    not_found_exception_mydict(Key key): key_{key}
+        {}
 
-    	const Key& get_key() const noexcept override
-	{
-    		return key_;
-	}
+    const Key& get_key() const noexcept override
+    {
+        return key_;
+    }
 };
 
 template<class Key, class Value>
@@ -26,39 +26,39 @@ class concrete_dictionary: public dictionary<Key,Value>
 private:
 	std::unordered_map<Key,Value> storage;
 public:
-    	~concrete_dictionary(){};
+    ~concrete_dictionary(){};
 
-    	const Value& get(const Key& key) const override
-    	{
-    		auto item = storage.find(key);
-    		if(nullptr==item)
-    			{throw not_found_exception_mydict<Key>(key);}
-    		return (*item).second;
-    	}
+    const Value& get(const Key& key) const override
+    {
+    	auto item = storage.find(key);
+    	if(nullptr==item)
+    		{throw not_found_exception_mydict<Key>(key);}
+    	return (*item).second;
+    }
 
-    	void set(const Key& key, const Value& value) override
-    	{
-    		const auto [it, success] = storage.insert( std::pair<Key,Value>(key,value) );
-    	 	if(!success)
-    	 		{std::cerr << "fail set pair[" << key << "," << value << "]\n";}
-    	}
+    void set(const Key& key, const Value& value) override
+    {
+    	const auto [it, success] = storage.insert( std::pair<Key,Value>(key,value) );
+     	if(!success)
+            {std::cerr << "fail set pair[" << key << "," << value << "]\n";}
+    }
 
-    	bool is_set(const Key& key) const override
-    	{
-    		auto item = storage.find(key);
-    		if(nullptr==item)
-    			{return false;}
-    		return true;
-    	}
+    bool is_set(const Key& key) const override
+    {
+    	auto item = storage.find(key);
+    	if(nullptr==item)
+    		{return false;}
+    	return true;
+    }
 
-	friend std::ostream& operator<<(std::ostream& os, const concrete_dictionary<Key,Value>& dict)
+    friend std::ostream& operator<<(std::ostream& os, const concrete_dictionary<Key,Value>& dict)
+    {
+	for(const auto& item : dict.storage)
 	{
-		for(const auto& item : dict.storage)
-		{
-			os << "first=" << item.first << "  " << "second=" << item.second << '\n';
-		}
-		return os;
+        	os << "first=" << item.first << "  " << "second=" << item.second << '\n';
 	}
+        return os;
+    }
 };
 
 

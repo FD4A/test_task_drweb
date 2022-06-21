@@ -44,14 +44,14 @@ void test_exception()
 
     try
     {
-    	std::string colorW = D.get(white);
+        std::string colorW = D.get(white);
     }
     catch ( const not_found_exception_mydict<std::string>& msg )
     {
-    	std::cerr << "not_found_exception_mydict " << msg.get_key() << '\n';
-    	std::flush(std::cerr);
-    	std::cout << "[OK] finish " << __FUNCTION__ << "()\n" << std::endl;
-    	return;
+        std::cerr << "not_found_exception_mydict " << msg.get_key() << '\n';
+        std::flush(std::cerr);
+        std::cout << "[OK] finish " << __FUNCTION__ << "()\n" << std::endl;
+        return;
     }
     bool resul_test_exception = false;
     assert(resul_test_exception);
@@ -60,25 +60,25 @@ void test_exception()
 
 struct color
 {
-	unsigned char r=255;
-	unsigned char g=255;
-	unsigned char b=255;
-	color() = default;
-	color(unsigned char r_, unsigned char g_, unsigned char b_): r{r_}, g{g_}, b{b_}
-		{}
+    unsigned char r=255;
+    unsigned char g=255;
+    unsigned char b=255;
+    color() = default;
+    color(unsigned char r_, unsigned char g_, unsigned char b_): r{r_}, g{g_}, b{b_}
+        {}
 
-	bool operator==(const color& c) const
-	{
-		if(r==c.r && g==c.g && b==c.b)
-			{return true;}
-		return false;
-	}
+    bool operator==(const color& c) const
+    {
+        if(r==c.r && g==c.g && b==c.b)
+            {return true;}
+        return false;
+    }
 
-	friend std::ostream& operator<<(std::ostream& os, const color& c)
-	{
-		os << static_cast<unsigned int>(c.r) << ' ' << static_cast<unsigned int>(c.g) << ' ' << static_cast<unsigned int>(c.b);
-		return os;
-	}
+    friend std::ostream& operator<<(std::ostream& os, const color& c)
+    {
+        os << static_cast<unsigned int>(c.r) << ' ' << static_cast<unsigned int>(c.g) << ' ' << static_cast<unsigned int>(c.b);
+        return os;
+    }
 };
 void test_simple_string_and_struct()
 {
@@ -123,15 +123,15 @@ void test_exception_string_and_struct()
 
     try
     {
-    	color colorW = D.get(white);
+        color colorW = D.get(white);
     }
     catch ( const not_found_exception_mydict<std::string>& msg )
     {
-    	std::flush(std::cout);
-    	std::cerr << "not_found_exception_mydict " << msg.get_key() << '\n';
-    	std::flush(std::cerr);
-    	std::cout << "[OK] finish " << __FUNCTION__ << "()\n" << std::endl;
-    	return;
+        std::flush(std::cout);
+        std::cerr << "not_found_exception_mydict " << msg.get_key() << '\n';
+        std::flush(std::cerr);
+        std::cout << "[OK] finish " << __FUNCTION__ << "()\n" << std::endl;
+        return;
     }
     bool test_exception_string_and_struct = false;
     assert(test_exception_string_and_struct);

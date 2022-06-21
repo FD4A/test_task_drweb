@@ -30,19 +30,17 @@ public:
 
     const Value& get(const Key& key) const override
     {
-        auto item = storage.find(key);
-        if(nullptr==item)
-        {
-            throw not_found_exception_mydict<Key>(key);
-        }
-        return (*item).second;
+    	auto item = storage.find(key);
+    	if(nullptr==item)
+    		{throw not_found_exception_mydict<Key>(key);}
+    	return (*item).second;
     }
 
     void set(const Key& key, const Value& value) override
     {
-         const auto [it, success] = storage.insert( std::pair<Key,Value>(key,value) );
-         if(!success)
-              {std::cerr << "fail set pair[" << key << "," << value << "]\n";}
+    	const auto [it, success] = storage.insert( std::pair<Key,Value>(key,value) );
+     	if(!success)
+            {std::cerr << "fail set pair[" << key << "," << value << "]\n";}
     }
 
     bool is_set(const Key& key) const override

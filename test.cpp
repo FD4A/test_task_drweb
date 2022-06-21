@@ -67,11 +67,11 @@ void test_exception()
 
     try
     {
-        std::string colorW = D.get(white);
+    	std::string colorW = D.get(white);
     }
     catch ( const not_found_exception_mydict<std::string>& msg )
     {
-        std::cout << "[OK] finish " << __FUNCTION__ << "()\n";
+    	std::cout << "[OK] finish " << __FUNCTION__ << "()\n";
     }
 }
 

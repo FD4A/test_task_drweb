@@ -6,7 +6,7 @@ void test_exception();
 
 int main(int argc, char **argv)
 {
-	test_simple();
-	test_exception();
-	return 0;
+    test_simple();
+    test_exception();
+    return 0;
 }

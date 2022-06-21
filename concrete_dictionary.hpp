@@ -6,12 +6,12 @@
 #include "dictionary_interface.hpp"
 
 template<class Key>
-class not_found_exception_C : public not_found_exception<Key>
+class not_found_exception_mydict: public not_found_exception<Key>
 {
 private:
 	Key key_;
 public:
-	not_found_exception_C(Key key): key_{key}
+	not_found_exception_mydict(Key key): key_{key}
 		{}
 
     const Key& get_key() const noexcept override
@@ -33,7 +33,7 @@ public:
     	auto item = storage.find(key);
     	if(nullptr==item)
     	{
-    		throw not_found_exception_C<Key>(key);
+    		throw not_found_exception_mydict<Key>(key);
     	}
     	return (*item).second;
     }

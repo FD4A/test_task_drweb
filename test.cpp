@@ -15,8 +15,6 @@ void test_simple()
     std::string xblue("#0000FF");
     std::string white("WHITE");
 
-    std::cout << D;
-
     D.set(red, xred);
     D.set(green, xgreen);
     D.set(blue, xblue);
@@ -34,6 +32,7 @@ void test_simple()
     assert( xgreen==colorG );
     assert( xblue==colorB );
 
+    std::cout << D;
     std::cout << "[OK] finish " << __FUNCTION__ << "()\n";
 }
 

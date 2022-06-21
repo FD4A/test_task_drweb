@@ -15,9 +15,7 @@ public:
         {}
 
     const Key& get_key() const noexcept override
-    {
-        return key_;
-    }
+        {return key_;}
 };
 
 template<class Key, class Value>
@@ -52,7 +50,7 @@ public:
     }
 
     template<class KEY, class VAL>
-    friend std::ostream& operator<<(std::ostream& os, const concrete_dictionary<KEY,VAL>& dict);
+	friend std::ostream& operator<<(std::ostream& os, const concrete_dictionary<KEY,VAL>& dict);
 };
 
 template<class Key, class Value>

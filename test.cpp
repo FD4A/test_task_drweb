@@ -50,7 +50,10 @@ void test_exception()
     {
     	std::cerr << "not_found_exception_mydict " << msg.get_key() << '\n';
     	std::cout << "[OK] finish " << __FUNCTION__ << "()\n";
+    	return;
     }
+    bool resul_test_exception = false;
+    assert(resul_test_exception);
 }
 
 
